@@ -11,7 +11,7 @@ set_property( DIRECTORY PROPERTY VS_STARTUP_PROJECT "ColorCalibration" )
 set( CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}" ${CMAKE_MODULE_PATH} )
 find_package( KinectSDK2 REQUIRED )
 
-set( OpenCV_DIR "C:/Program Files/opencv/build" )
+set( OpenCV_DIR "F:/OPENCV/opencv-3.1.0/buildVS14_64/" )
 option( OpenCV_STATIC OFF )
 find_package( OpenCV REQUIRED )
 

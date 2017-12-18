@@ -65,6 +65,8 @@ void Kinect::run()
 		if (key == VK_ESCAPE)
 			break;
 		else if (key == 0x4B) {
+			TimerActive.getCurrentTime();
+			TimerActive.DisplayCurrentTime();
 			PromtTimerAndStartCalibration();
 			WritingMode = true;
 		}
@@ -335,11 +337,13 @@ inline void Kinect::showDepth()
 
 void Kinect::saveData(int frameNumber, string& savePath)
 {
-	if (!colorMat.empty()) {
+	if (!colorMat.empty() && !depthMat.empty()) {
 		char buffer[10]; sprintf(buffer, "%06d", frameNumber);
 		string temp(buffer);
 		string imageName = savePath + "//" + temp + "_color.png";
 		imwrite(imageName, colorMat);
+		string depthName = savePath + "//" + temp + "_depth.png";
+		imwrite(depthName, depthMat);
 	}
 	else
 		return;
